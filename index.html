@@ -1,393 +1,714 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>ICU泵药学习手册｜手机版</title>
-<style>
-    :root{
-      --bg:#f5f5f7;
-      --surface:rgba(255,255,255,.72);
-      --surface-strong:rgba(255,255,255,.92);
-      --text:#1d1d1f;
-      --muted:#6e6e73;
-      --line:rgba(0,0,0,.08);
-      --blue:#0071e3;
-      --purple:#7c3aed;
-      --green:#22c55e;
-      --orange:#f97316;
-      --red:#ef4444;
-      --shadow:0 24px 70px rgba(0,0,0,.10);
-      --radius:28px;
-      --radius-sm:18px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      --sans:-apple-system,BlinkMacSystemFont,"SF Pro SC","SF Pro Text","PingFang SC","Hiragino Sans GB","Helvetica Neue",Arial,"Microsoft YaHei",sans-serif;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>自身免疫性脑炎 IVIG（丙球）使用流程图</title>
+  <style>
+    :root {
+      --bg: #f6fafc;
+      --paper: #ffffff;
+      --ink: #17212b;
+      --muted: #607080;
+      --line: #d5e0e8;
+      --navy: #123b5d;
+      --teal: #0e8a83;
+      --red: #b9433b;
+      --amber: #d99a2b;
+      --green: #3c8d57;
+      --violet: #6d55b8;
+      --blue-soft: #e7f1f8;
+      --teal-soft: #e4f4f2;
+      --amber-soft: #fbf1da;
+      --red-soft: #f7e8e6;
+      --green-soft: #e8f4ec;
+      --violet-soft: #f0edf8;
+      --shadow: 0 16px 42px rgba(18, 59, 93, 0.08);
+      --radius: 10px;
     }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#060607;
-        --surface:rgba(28,28,30,.72);
-        --surface-strong:rgba(28,28,30,.92);
-        --text:#f5f5f7;
-        --muted:#a1a1a6;
-        --line:rgba(255,255,255,.12);
-        --shadow:0 24px 70px rgba(0,0,0,.38);
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif;
+      line-height: 1.58;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 28px 70px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 30px;
+      align-items: stretch;
+      padding: 34px 0 42px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      margin: 0 0 14px;
+      color: var(--teal);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 790px;
+      font-size: 46px;
+      line-height: 1.16;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 820px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .mark-dose {
+      display: inline;
+      padding: 2px 6px 3px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 35%, #ffe28a 35%);
+      color: var(--navy);
+      font-weight: 850;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .notice {
+      margin-top: 22px;
+      border-left: 6px solid var(--amber);
+      background: var(--amber-soft);
+      padding: 15px 18px;
+      color: #70420d;
+      font-size: 14px;
+    }
+
+    .dose-card {
+      background: var(--navy);
+      color: #fff;
+      min-height: 260px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: var(--shadow);
+    }
+
+    .dose-card .label {
+      font-size: 32px;
+      font-weight: 850;
+      margin-bottom: 20px;
+    }
+
+    .dose-card .dose {
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 850;
+      margin-bottom: 16px;
+    }
+
+    .dose-card .note {
+      color: #d9e7ef;
+      font-size: 14px;
+    }
+
+    section {
+      padding: 42px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    p { margin: 0; }
+
+    .section-note {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .grid.three { grid-template-columns: repeat(3, 1fr); }
+    .grid.four { grid-template-columns: repeat(4, 1fr); }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 22px;
+      min-height: 150px;
+      box-shadow: var(--shadow);
+    }
+
+    .stripe { border-top: 10px solid var(--navy); }
+    .stripe.teal { border-top-color: var(--teal); }
+    .stripe.amber { border-top-color: var(--amber); }
+    .stripe.red { border-top-color: var(--red); }
+    .stripe.green { border-top-color: var(--green); }
+    .stripe.violet { border-top-color: var(--violet); }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--blue-soft);
+      color: var(--navy);
+    }
+
+    .tag.teal { background: var(--teal-soft); color: var(--teal); }
+    .tag.amber { background: var(--amber-soft); color: var(--amber); }
+    .tag.red { background: var(--red-soft); color: var(--red); }
+    .tag.green { background: var(--green-soft); color: var(--green); }
+    .tag.violet { background: var(--violet-soft); color: var(--violet); }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+
+    .formula {
+      margin: 12px 0;
+      padding: 15px 16px;
+      background: #0f2235;
+      color: #e6eef5;
+      font-family: "SF Mono", Menlo, Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.55;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #eaf0f5;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f6f9;
+      color: #41566b;
+      font-size: 13px;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    ul, ol {
+      margin: 10px 0 0 1.2em;
+      padding: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    li { margin: 7px 0; }
+
+    .callout {
+      margin-top: 22px;
+      padding: 16px 18px;
+      background: #eef6fa;
+      border-left: 6px solid var(--teal);
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .calc {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    input {
+      width: 100%;
+      border: 1px solid #cfdbe6;
+      padding: 11px 12px;
+      background: #fbfdff;
+      color: var(--ink);
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(14, 138, 131, 0.12);
+    }
+
+    .result {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px dashed #b8c8d5;
+      background: #f5f9fb;
+    }
+
+    .pill {
+      background: #fff;
+      border: 1px solid #dbe5ed;
+      padding: 11px;
+    }
+
+    .pill span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .pill b {
+      display: block;
+      color: var(--ink);
+      font-size: 19px;
+    }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .check {
+      background: #f8fbfd;
+      border: 1px solid #dce7ef;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+
+    .check::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 900;
+      margin-right: 8px;
+    }
+
+    .risk { border-left: 8px solid var(--navy); }
+    .risk.red { border-left-color: var(--red); }
+    .risk.amber { border-left-color: var(--amber); }
+    .risk.teal { border-left-color: var(--teal); }
+
+    .flow-wrap {
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+
+    .flow {
+      min-width: 1060px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 150px 38px 210px 38px 210px 38px 210px 38px 150px;
+      align-items: center;
+      margin-bottom: 34px;
+    }
+
+    .flow-row.reverse {
+      grid-template-columns: 210px 38px 230px 38px 210px 38px 210px;
+      justify-content: end;
+      margin-top: 34px;
+    }
+
+    .flow-node {
+      min-height: 106px;
+      padding: 17px 16px;
+      background: var(--paper);
+      border: 1.5px solid var(--line);
+    }
+
+    .flow-node h3 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .flow-node p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .flow-node.blue { background: var(--blue-soft); }
+    .flow-node.teal { background: var(--teal-soft); }
+    .flow-node.amber { background: var(--amber-soft); }
+    .flow-node.red { background: var(--red-soft); }
+    .flow-node.green { background: var(--green-soft); }
+    .flow-node.ivig {
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+    .flow-node.ivig h3,
+    .flow-node.ivig p { color: #fff; }
+
+    .arrow {
+      height: 3px;
+      background: #9fb3c3;
+      position: relative;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: -5px;
+      width: 10px;
+      height: 13px;
+      background: #9fb3c3;
+    }
+
+    .arrow.left::after {
+      right: auto;
+      left: 0;
+    }
+
+    .arrow.green,
+    .arrow.green::after { background: var(--green); }
+    .arrow.red,
+    .arrow.red::after { background: var(--red); }
+
+    .drop {
+      width: 3px;
+      height: 68px;
+      margin-left: auto;
+      margin-right: 74px;
+      background: #9fb3c3;
+      position: relative;
+    }
+
+    .drop::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -5px;
+      width: 13px;
+      height: 10px;
+      background: #9fb3c3;
+    }
+
+    .refs a {
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    footer {
+      padding-top: 28px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 860px) {
+      .page { padding: 28px 18px 48px; }
+      .hero,
+      .grid.two,
+      .grid.three,
+      .grid.four,
+      .calc,
+      .result,
+      .checklist {
+        grid-template-columns: 1fr;
       }
+      h1 { font-size: 34px; }
+      .dose-card { min-height: 190px; }
+      .card { min-height: auto; }
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:var(--sans);
-      color:var(--text);
-      background:
-        radial-gradient(circle at 10% 0%, rgba(0,113,227,.18), transparent 32rem),
-        radial-gradient(circle at 90% 8%, rgba(124,58,237,.16), transparent 30rem),
-        linear-gradient(180deg, #fbfbfd 0%, var(--bg) 24rem, var(--bg) 100%);
-      line-height:1.65;
-    }
-    @media (prefers-color-scheme: dark){body{background:
-      radial-gradient(circle at 10% 0%, rgba(0,113,227,.24), transparent 32rem),
-      radial-gradient(circle at 90% 8%, rgba(124,58,237,.22), transparent 30rem),
-      linear-gradient(180deg, #0d0d10 0%, var(--bg) 24rem, var(--bg) 100%);}}
-    .container{width:min(1180px,calc(100% - 36px));margin:0 auto}
-    .hero{padding:64px 0 28px;position:relative;overflow:hidden}
-    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);backdrop-filter:blur(18px);font-size:13px;color:var(--muted);box-shadow:0 8px 30px rgba(0,0,0,.06)}
-    .title{font-size:clamp(42px,7vw,86px);letter-spacing:-.06em;line-height:.98;margin:22px 0 18px;font-weight:800;}
-    .title span{background:linear-gradient(100deg,#0071e3,#7c3aed 46%,#ff375f);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .subtitle{font-size:clamp(18px,2.4vw,25px);color:var(--muted);max-width:920px;margin:0 0 28px;letter-spacing:-.02em}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:28px;align-items:stretch}
-    @media (max-width:860px){.hero-grid{grid-template-columns:1fr}.sticky-nav{display:none!important}}
-    .glass{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
-    .notice{padding:22px 24px}.notice strong{color:var(--red)}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:16px}
-    .stat{border:1px solid var(--line);border-radius:22px;padding:18px;background:rgba(255,255,255,.46)}
-    @media (prefers-color-scheme: dark){.stat{background:rgba(255,255,255,.04)}}
-    .stat b{display:block;font-size:34px;line-height:1;letter-spacing:-.04em}.stat span{font-size:13px;color:var(--muted)}
-    .sticky-nav{position:sticky;top:14px;z-index:10;margin:10px auto 28px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:10px;width:max-content;max-width:calc(100% - 36px);background:rgba(255,255,255,.70);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(20px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
-    @media (prefers-color-scheme: dark){.sticky-nav{background:rgba(28,28,30,.70)}}
-    .sticky-nav a{color:var(--text);text-decoration:none;font-size:14px;padding:8px 13px;border-radius:999px}.sticky-nav a:hover{background:rgba(0,113,227,.10);color:var(--blue)}
-    section{padding:38px 0}.section-title{font-size:clamp(30px,4vw,48px);letter-spacing:-.045em;line-height:1.05;margin:0 0 12px}.section-subtitle{color:var(--muted);font-size:18px;margin:0 0 22px;max-width:880px}
-    .grid-6{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    @media (max-width:1020px){.grid-6{grid-template-columns:repeat(3,1fr)}.grid-3{grid-template-columns:1fr 1fr}}
-    @media (max-width:680px){.grid-6,.grid-3,.grid-2{grid-template-columns:1fr}}
-    .mini-card,.card{background:var(--surface-strong);border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px;box-shadow:0 12px 34px rgba(0,0,0,.06)}
-    .mini-card h3,.card h3{margin:0 0 8px;font-size:19px;letter-spacing:-.02em}.mini-card p,.card p{margin:0;color:var(--muted)}
-    .tag{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--muted);background:rgba(255,255,255,.45);margin:3px 4px 3px 0}
-    @media (prefers-color-scheme: dark){.tag{background:rgba(255,255,255,.04)}}
-    .tag.blue{color:#0071e3}.tag.red{color:#ef4444}.tag.green{color:#16a34a}.tag.orange{color:#ea580c}.tag.purple{color:#7c3aed}
-    .flow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.pill{padding:12px 15px;border-radius:999px;background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.15);font-weight:700}.arrow{color:var(--muted)}
-    .formula{font-family:var(--mono);font-size:15px;line-height:1.7;background:rgba(0,0,0,.045);border:1px solid var(--line);border-radius:18px;padding:14px;margin:12px 0;color:var(--text);overflow:auto}.formula b{color:var(--blue)}
-    @media (prefers-color-scheme: dark){.formula{background:rgba(255,255,255,.06)}}
-    .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0}.search{flex:1;min-width:240px;border:1px solid var(--line);border-radius:16px;padding:13px 15px;background:var(--surface-strong);color:var(--text);font:inherit;outline:none}.select{border:1px solid var(--line);border-radius:16px;padding:13px 15px;background:var(--surface-strong);color:var(--text);font:inherit;outline:none}
-    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:24px;background:var(--surface-strong);box-shadow:0 16px 42px rgba(0,0,0,.06)}
-    table{width:100%;border-collapse:collapse;min-width:980px}th,td{padding:15px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:13px;color:var(--muted);font-weight:700;background:rgba(255,255,255,.46);position:sticky;top:0;z-index:1}td{font-size:14.5px}tr:last-child td{border-bottom:0}.drug-name{font-weight:800;color:var(--text);font-size:15px}.muted{color:var(--muted)}
-    @media (prefers-color-scheme: dark){th{background:rgba(255,255,255,.06)}}
-    .drug-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}@media (max-width:860px){.drug-grid{grid-template-columns:1fr}}
-    details.drug{background:var(--surface-strong);border:1px solid var(--line);border-radius:24px;padding:0;box-shadow:0 12px 34px rgba(0,0,0,.05);overflow:hidden}
-    details.drug[open]{box-shadow:0 22px 54px rgba(0,0,0,.10)}
-    details.drug summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:800;letter-spacing:-.02em}details.drug summary::-webkit-details-marker{display:none}.summary-left{display:flex;flex-direction:column;gap:5px}.chev{width:28px;height:28px;border-radius:999px;background:rgba(0,113,227,.10);display:grid;place-items:center;color:var(--blue);transition:.2s}details[open] .chev{transform:rotate(90deg)}
-    .drug-body{padding:0 20px 20px}.drug-body ul{margin:10px 0 0;padding-left:19px}.drug-body li{margin:6px 0}.warning{border-left:4px solid var(--red);padding:12px 14px;border-radius:14px;background:rgba(239,68,68,.08);margin-top:12px;color:var(--text)}.pearl{border-left:4px solid var(--blue);padding:12px 14px;border-radius:14px;background:rgba(0,113,227,.08);margin-top:12px}
-    .case{background:var(--surface-strong);border:1px solid var(--line);border-radius:24px;padding:20px;box-shadow:0 12px 34px rgba(0,0,0,.05)}.case h3{margin:0 0 8px}.case details{margin-top:12px}.case summary{cursor:pointer;color:var(--blue);font-weight:800}.case p{margin:8px 0;color:var(--muted)}
-    .calc{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:end}@media (max-width:680px){.calc{grid-template-columns:1fr}}.calc label{display:flex;flex-direction:column;gap:6px;color:var(--muted);font-size:13px}.calc input,.calc select{border:1px solid var(--line);border-radius:16px;padding:13px;background:var(--surface-strong);font:inherit;color:var(--text)}.result{padding:16px;border-radius:20px;background:rgba(0,113,227,.10);border:1px solid rgba(0,113,227,.16);font-weight:800}
-    .timeline{display:grid;gap:12px}.day{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start;background:var(--surface-strong);border:1px solid var(--line);border-radius:20px;padding:16px}@media (max-width:680px){.day{grid-template-columns:1fr}}.day b{font-size:18px}.day p{margin:0;color:var(--muted)}
-    .sources a{color:var(--blue);text-decoration:none}.sources a:hover{text-decoration:underline}.foot{padding:34px 0 60px;color:var(--muted);font-size:13px}.print-note{display:none}
-    @media print{body{background:#fff}.sticky-nav,.controls,.calc{display:none!important}.glass,.card,.mini-card,details.drug,.case,.table-wrap{box-shadow:none;background:#fff}.container{width:100%}.hero{padding-top:20px}.title{font-size:42px}.print-note{display:block}.drug-grid{grid-template-columns:1fr}details.drug{break-inside:avoid}details.drug:not([open]) .drug-body{display:block}}
-  </style>
-<meta content="#f5f5f7" name="theme-color"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="default" name="apple-mobile-web-app-status-bar-style"/><meta content="ICU泵药" name="apple-mobile-web-app-title"/><meta content="telephone=no" name="format-detection"/>
-<style id="mobile-upgrade-css">
-    .mobile-bar,.bottom-tabs{display:none}
-    .mobile-install{display:none}
-    mark.hit{background:rgba(255,214,10,.35);color:inherit;border-radius:6px;padding:0 2px}
-    @media (max-width:760px){
-      :root{--radius:24px;--radius-sm:18px}
-      body{font-size:16px;line-height:1.72;padding-bottom:82px;background:linear-gradient(180deg,#fbfbfd 0%,var(--bg) 18rem,var(--bg) 100%)}
-      .container{width:calc(100% - 24px)}
-      .hero{padding:76px 0 22px}.eyebrow{font-size:12px;padding:6px 10px}.title{font-size:clamp(38px,13vw,56px);letter-spacing:-.055em;margin:18px 0 12px}.subtitle{font-size:17px;line-height:1.58;margin-bottom:18px}.notice{padding:18px}.stats{grid-template-columns:repeat(3,1fr);gap:8px;padding:10px}.stat{padding:12px 10px;border-radius:18px}.stat b{font-size:26px}.stat span{font-size:11px;line-height:1.25;display:block}
-      section{padding:28px 0}.section-title{font-size:32px;letter-spacing:-.04em}.section-subtitle{font-size:16px;margin-bottom:16px}.mini-card,.card,.case{padding:17px;border-radius:20px}.mini-card h3,.card h3{font-size:18px}.flow{display:block}.pill{display:block;margin:8px 0;border-radius:16px}.arrow{display:none}
-      .mobile-bar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;gap:8px;align-items:center;padding:10px 12px calc(10px + env(safe-area-inset-top));background:rgba(255,255,255,.78);border-bottom:1px solid var(--line);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
-      @media (prefers-color-scheme: dark){.mobile-bar{background:rgba(28,28,30,.78)}}
-      .mobile-brand{font-weight:900;font-size:14px;letter-spacing:-.02em;white-space:nowrap}.mobile-search{flex:1;min-width:0;border:1px solid var(--line);border-radius:999px;padding:10px 12px;background:var(--surface-strong);font:inherit;font-size:14px;color:var(--text);outline:none}.mobile-btn{border:1px solid var(--line);border-radius:999px;padding:9px 10px;background:var(--surface-strong);font-weight:800;color:var(--blue);text-decoration:none;font-size:13px}
-      .sticky-nav{display:flex!important;position:static;width:100%;max-width:100%;overflow-x:auto;justify-content:flex-start;border-radius:18px;padding:8px;margin:0 auto 16px;white-space:nowrap;scrollbar-width:none}.sticky-nav::-webkit-scrollbar{display:none}.sticky-nav a{flex:0 0 auto}
-      .bottom-tabs{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:60;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:8px;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.82);box-shadow:0 16px 40px rgba(0,0,0,.15);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
-      @media (prefers-color-scheme: dark){.bottom-tabs{background:rgba(28,28,30,.82)}}
-      .bottom-tabs a{display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:var(--text);font-size:11px;line-height:1.15;border-radius:16px;padding:8px 4px}.bottom-tabs a strong{font-size:16px;line-height:1}.bottom-tabs a:active,.bottom-tabs a:hover{background:rgba(0,113,227,.10);color:var(--blue)}
-      .controls{position:sticky;top:66px;z-index:30;background:rgba(245,245,247,.82);padding:10px 0;margin:10px 0 14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}@media (prefers-color-scheme: dark){.controls{background:rgba(6,6,7,.82)}}.search,.select{min-width:100%;font-size:16px}
-      .table-wrap{border:0;background:transparent;box-shadow:none;overflow:visible}table{min-width:0;border-collapse:separate;border-spacing:0 12px}thead{display:none}tbody,tr,td{display:block;width:100%}tr{background:var(--surface-strong);border:1px solid var(--line);border-radius:22px;padding:14px 14px 12px;box-shadow:0 10px 26px rgba(0,0,0,.05);overflow:hidden}td{border-bottom:0;padding:7px 0;font-size:15px}td::before{content:attr(data-label);display:block;color:var(--muted);font-size:12px;font-weight:800;margin-bottom:2px}.drug-name{font-size:19px;display:block}td:first-child::before{display:none}td:nth-child(2){display:inline-flex;width:auto;border-radius:999px;background:rgba(0,113,227,.10);padding:5px 10px;margin:4px 0 6px;color:var(--blue);font-size:12px;font-weight:800}td:nth-child(2)::before{display:none}
-      .drug-grid{gap:12px}details.drug summary{padding:17px}.drug-body{padding:0 17px 17px}.case h3{font-size:18px}.case details{border-top:1px solid var(--line);padding-top:10px}.formula{font-size:13px;border-radius:16px}.calc input,.calc select{font-size:16px}.day{border-radius:18px}.sources .grid-2{gap:12px}.foot{padding-bottom:110px}
-      .mobile-install{display:block;background:linear-gradient(180deg,rgba(0,113,227,.12),rgba(124,58,237,.10));border:1px solid rgba(0,113,227,.18);border-radius:24px;padding:18px;margin-top:14px}.mobile-install h3{margin:0 0 6px;font-size:20px}.mobile-install p{margin:7px 0;color:var(--muted)}.mobile-install code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:8px}@media (prefers-color-scheme: dark){.mobile-install code{background:rgba(255,255,255,.08)}}
+
+    @media print {
+      body { background: #fff; }
+      .page { max-width: none; padding: 20px; }
+      .card, .dose-card { box-shadow: none; }
+      section { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-<div class="mobile-bar" role="search">
-<div class="mobile-brand">ICU泵药</div>
-<input aria-label="搜索药物" class="mobile-search" id="quickSearch" placeholder="搜药名/场景：去甲、房颤、SAH…"/>
-<a class="mobile-btn" href="#table">速查</a>
-</div>
-<nav aria-label="手机快捷导航" class="bottom-tabs">
-<a href="#map"><strong>⌁</strong><span>地图</span></a>
-<a href="#table"><strong>⌕</strong><span>速查</span></a>
-<a href="#cards"><strong>▤</strong><span>卡片</span></a>
-<a href="#quiz"><strong>?</strong><span>思考</span></a>
-</nav>
-
-<header class="hero container">
-<div class="eyebrow">ICU Rotation Notes · 静脉泵药 · 神经ICU友好版</div>
-<h1 class="title">ICU泵药<br/><span>一页学会</span></h1>
-<p class="subtitle">把照片里的 22 种常用泵药，整理成“机制—场景—泵速换算—监测—思考题”的学习手册。适合 ICU 轮转、神经ICU值班前复习、床旁查房前快速过一遍。</p>
-<div class="hero-grid">
-<div class="glass notice">
-<strong>安全提醒：</strong>本文用于学习和建立用药框架，不能替代医院药品说明书、科室泵药模板、医嘱、药师审核和床旁监护。照片中个别字迹较小/反光，配制浓度请以原始清晰版本和本院制度为准。临床使用必须根据体重、肝肾功能、血压心率、心电图、出入量、APTT/ACT、RASS/CPOT等动态调整。
+  <main class="page">
+    <header class="hero">
+      <div>
+        <p class="kicker">AE急性期免疫治疗 | IVIG / 丙种球蛋白</p>
+        <h1>自身免疫性脑炎：丙球怎么用？</h1>
+        <p class="subtitle">核心思路：疑似或确诊自身免疫性脑炎（AE）且感染等替代诊断已同步评估后，IVIG属于一线免疫治疗选择之一。常用总量 <b>2 g/kg</b>，分 <b>2-5天</b>；<span class="mark-dose">临床最常见写法是 0.4 g/kg/日 x 5天</span>。</p>
+        <div class="notice"><b>临床提示：</b>本页用于临床学习和医嘱思路整理，不替代个体化医嘱。具体处方需结合患者年龄、体重、肾功能、血栓风险、过敏史、容量状态、产品说明书及本院药事规范；必要时完成血制品、费用、超说明书/自费等知情同意。</div>
       </div>
-<div class="glass stats">
-<div class="stat"><b>22</b><span>张图涉及药物</span></div>
-<div class="stat"><b>6</b><span>核心类别</span></div>
-<div class="stat"><b>10</b><span>场景思考题</span></div>
-</div>
-</div>
+      <aside class="dose-card" aria-label="IVIG常用剂量">
+        <div class="label">IVIG</div>
+        <div class="dose">0.4 g/kg/日<br>x 5日</div>
+        <div class="note">总量 2 g/kg；也可按 2 g/kg 分 2-5日输注。若 2.5 g/瓶，总瓶数约为体重 x 0.8。</div>
+      </aside>
+    </header>
 
-<div class="mobile-install">
-<h3>手机使用建议</h3>
-<p>打开网页后，iPhone 用 Safari 点“分享”→“添加到主屏幕”；Android 用 Chrome 点右上角“⋮”→“添加到主屏幕”。以后像 App 一样打开，顶部搜索框可直接搜药名、场景和风险点。</p>
-<p>想跨设备同步，推荐把这个文件部署成一个静态网页，再添加到手机主屏幕。</p>
-</div>
-</header>
-<nav class="sticky-nav">
-<a href="#map">用药地图</a><a href="#formula">泵速换算</a><a href="#table">速查表</a><a href="#cards">药物卡片</a><a href="#neuro">神经ICU</a><a href="#quiz">思考题</a><a href="#plan">学习路线</a>
-</nav>
-<main class="container">
-<section id="map">
-<h2 class="section-title">先抓住一张“用药地图”</h2>
-<p class="section-subtitle">不要先背泵速。先问：这个病人现在最危险的问题是血压、心率、心排、出血、凝血，还是镇痛镇静？</p>
-<div class="grid-6">
-<div class="mini-card"><span class="tag blue">扩血管/降压</span><h3>让压力下来</h3><p>硝酸甘油、硝普钠、乌拉地尔、尼卡地平、单硝酸异山梨酯</p></div>
-<div class="mini-card"><span class="tag red">升压</span><h3>把 MAP 拉起来</h3><p>去甲肾上腺素、肾上腺素、多巴胺</p></div>
-<div class="mini-card"><span class="tag green">强心</span><h3>心脏打出去</h3><p>多巴酚丁胺；必要时与升压药联合</p></div>
-<div class="mini-card"><span class="tag purple">心律</span><h3>控率/转律/抗室速</h3><p>胺碘酮、艾司洛尔、地尔硫䓬、利多卡因、异丙肾上腺素</p></div>
-<div class="mini-card"><span class="tag orange">出血/门脉</span><h3>减少内脏血流</h3><p>生长抑素、奥曲肽、垂体后叶素</p></div>
-<div class="mini-card"><span class="tag">镇静镇痛</span><h3>让病人与机器同步</h3><p>咪达唑仑、丙泊酚、右美托咪定、瑞芬太尼、地西泮</p></div>
-</div>
-</section>
-<section id="formula">
-<h2 class="section-title">泵速换算：先懂公式，再背模板</h2>
-<p class="section-subtitle">照片里的核心思路是：把药配成“方便心算”的浓度。下面这些换算用于理解，临床执行仍需按本院浓度模板。</p>
-<div class="grid-3">
-<div class="card">
-<h3>公式 A：体重 × 3 mg 至 50 mL</h3>
-<div class="formula">浓度 = W×3 mg / 50 mL<br/>1 mL/h = <b>1 μg/kg/min</b></div>
-<p>常见于多巴胺、多巴酚丁胺、地尔硫䓬等模板。60 kg 患者即 180 mg 至 50 mL，泵 5 mL/h ≈ 5 μg/kg/min。</p>
-</div>
-<div class="card">
-<h3>公式 B：体重 × 0.3 mg 至 50 mL</h3>
-<div class="formula">浓度 = W×0.3 mg / 50 mL<br/>1 mL/h = <b>0.1 μg/kg/min</b></div>
-<p>常见于去甲肾上腺素、肾上腺素、尼卡地平一类“更敏感”的滴定模板。60 kg 患者泵 5 mL/h ≈ 0.5 μg/kg/min。</p>
-</div>
-<div class="card">
-<h3>公式 C：50 mg 至 50 mL</h3>
-<div class="formula">浓度 = 1 mg/mL<br/>0.6 mL/h = <b>10 μg/min</b></div>
-<p>硝酸甘油、硝普钠一类常见固定浓度。关键是“分钟剂量”和“小时泵速”的换算。</p>
-</div>
-</div>
-<div class="card" style="margin-top:16px">
-<h3>教学换算器（只用于理解模板）</h3>
-<div class="calc">
-<label>体重 kg
-            <input id="weight" max="200" min="20" step="1" type="number" value="60"/>
-</label>
-<label>选择模板
-            <select id="template">
-<option value="3">体重×3 mg 至50 mL：1 mL/h = 1 μg/kg/min</option>
-<option value="0.3">体重×0.3 mg 至50 mL：1 mL/h = 0.1 μg/kg/min</option>
-<option value="fixed50">50 mg 至50 mL：0.6 mL/h = 10 μg/min</option>
-</select>
-</label>
-<label>目标剂量
-            <input id="dose" step="0.1" type="number" value="5"/>
-</label>
-<div class="result" id="calcResult">预计泵速：5 mL/h</div>
-</div>
-</div>
-</section>
-<section id="table">
-<h2 class="section-title">22种药物速查表</h2>
-<p class="section-subtitle">输入“休克、房颤、出血、镇静、SAH、肾功能、心动过缓”等关键词，可以快速筛选。</p>
-<div class="controls">
-<input class="search" id="search" placeholder="搜索药名/场景/风险，例如：休克、房颤、低血压、出血、镇静…"/>
-<select class="select" id="filter">
-<option value="all">全部类别</option><option value="降压/扩血管">降压/扩血管</option><option value="升压/强心">升压/强心</option><option value="心律失常">心律失常</option><option value="出血/门脉">出血/门脉</option><option value="抗凝">抗凝</option><option value="镇静镇痛">镇静镇痛</option>
-</select>
-</div>
-<div class="table-wrap">
-<table id="drugTable">
-<thead><tr><th>药物</th><th>类别</th><th>主要作用</th><th>典型场景</th><th>重点监测/高危点</th><th>一句话记忆</th></tr></thead>
-<tbody>
-<tr data-cat="降压/扩血管"><td data-label="药物"><span class="drug-name">硝酸甘油</span></td><td data-label="类别">降压/扩血管</td><td data-label="主要作用">扩静脉为主，降低前负荷；也扩冠脉</td><td data-label="典型场景">ACS、急性心衰/肺水肿伴高血压、围术期控压</td><td data-label="重点监测/高危点">血压、头痛、心率；严禁与PDE-5抑制剂风险叠加</td><td data-label="一句话记忆">“肺水肿+高压+胸痛”常想到它</td></tr>
-<tr data-cat="降压/扩血管"><td data-label="药物"><span class="drug-name">单硝酸异山梨酯</span></td><td data-label="类别">降压/扩血管</td><td data-label="主要作用">硝酸酯类，抗缺血、扩血管</td><td data-label="典型场景">冠心病心绞痛、心衰辅助</td><td data-label="重点监测/高危点">低血压、头痛、耐受性</td><td data-label="一句话记忆">更偏抗缺血，急救爆发力不如硝酸甘油</td></tr>
-<tr data-cat="降压/扩血管"><td data-label="药物"><span class="drug-name">硝普钠</span></td><td data-label="类别">降压/扩血管</td><td data-label="主要作用">强效动静脉扩张，起效极快</td><td data-label="典型场景">高血压急症、术中/术后严密控压</td><td data-label="重点监测/高危点">有创/密切血压；氰化物/硫氰酸盐毒性；肝肾功能差慎用</td><td data-label="一句话记忆">“降压最快，但最需要盯”</td></tr>
-<tr data-cat="升压/强心"><td data-label="药物"><span class="drug-name">多巴胺</span></td><td data-label="类别">升压/强心</td><td data-label="主要作用">剂量依赖性兴奋DA/β/α受体</td><td data-label="典型场景">低血压、休克部分场景</td><td data-label="重点监测/高危点">心律失常、心肌耗氧；所谓“肾保护剂量”不作为常规目标</td><td data-label="一句话记忆">会升压，也更容易乱心律</td></tr>
-<tr data-cat="升压/强心"><td data-label="药物"><span class="drug-name">多巴酚丁胺</span></td><td data-label="类别">升压/强心</td><td data-label="主要作用">β1强心为主，增加心排</td><td data-label="典型场景">心源性休克、低心排、心衰合并灌注差</td><td data-label="重点监测/高危点">血压可能下降；心率、心律、乳酸、尿量</td><td data-label="一句话记忆">“血压尚可但泵不动”</td></tr>
-<tr data-cat="升压/强心"><td data-label="药物"><span class="drug-name">去甲肾上腺素</span></td><td data-label="类别">升压/强心</td><td data-label="主要作用">α1强收缩血管，少量β1</td><td data-label="典型场景">感染性休克、血管扩张性休克、一线升压</td><td data-label="重点监测/高危点">MAP、肢端灌注、外渗坏死、乳酸、尿量</td><td data-label="一句话记忆">ICU升压第一反应</td></tr>
-<tr data-cat="升压/强心"><td data-label="药物"><span class="drug-name">肾上腺素</span></td><td data-label="类别">升压/强心</td><td data-label="主要作用">α+β双强，升压强心扩支气管</td><td data-label="典型场景">CPR、过敏性休克、难治性休克</td><td data-label="重点监测/高危点">心动过速、心律失常、乳酸/血糖升高</td><td data-label="一句话记忆">“停了、过敏了、难治了”</td></tr>
-<tr data-cat="心律失常"><td data-label="药物"><span class="drug-name">异丙肾上腺素</span></td><td data-label="类别">心律失常</td><td data-label="主要作用">β受体激动，明显提高心率</td><td data-label="典型场景">严重缓慢心律、房室传导阻滞临时过渡</td><td data-label="重点监测/高危点">心动过速、心肌缺血、低钾倾向</td><td data-label="一句话记忆">给“太慢的心”临时提速</td></tr>
-<tr data-cat="降压/扩血管"><td data-label="药物"><span class="drug-name">乌拉地尔/亚宁定</span></td><td data-label="类别">降压/扩血管</td><td data-label="主要作用">α1阻滞+中枢5-HT1A作用</td><td data-label="典型场景">高血压急症、围术期/神经ICU控压</td><td data-label="重点监测/高危点">低血压、头晕；相对不明显反射性增快心率</td><td data-label="一句话记忆">神经ICU常用的“平稳降压”</td></tr>
-<tr data-cat="心律失常"><td data-label="药物"><span class="drug-name">地尔硫䓬</span></td><td data-label="类别">心律失常</td><td data-label="主要作用">非二氢吡啶CCB，减慢房室结传导</td><td data-label="典型场景">房颤/房扑快速心室率、室上速</td><td data-label="重点监测/高危点">低血压、心衰、AVB；WPW合并房颤禁忌风险</td><td data-label="一句话记忆">“房颤快了，先看血压和心衰”</td></tr>
-<tr data-cat="降压/扩血管"><td data-label="药物"><span class="drug-name">尼卡地平</span></td><td data-label="类别">降压/扩血管</td><td data-label="主要作用">二氢吡啶CCB，动脉扩张控压</td><td data-label="典型场景">脑出血、SAH、卒中/介入围术期控压</td><td data-label="重点监测/高危点">血压、反射性心动过速、头痛、局部静脉炎</td><td data-label="一句话记忆">神经ICU控压常见选择</td></tr>
-<tr data-cat="心律失常"><td data-label="药物"><span class="drug-name">艾司洛尔</span></td><td data-label="类别">心律失常</td><td data-label="主要作用">超短效β1阻滞</td><td data-label="典型场景">房颤控率、主动脉夹层、围术期心动过速</td><td data-label="重点监测/高危点">低血压、支气管痉挛、心动过缓、AVB</td><td data-label="一句话记忆">“可控、可撤”的降心率</td></tr>
-<tr data-cat="心律失常"><td data-label="药物"><span class="drug-name">胺碘酮</span></td><td data-label="类别">心律失常</td><td data-label="主要作用">广谱抗心律失常，延长复极</td><td data-label="典型场景">房颤、室速、室颤复苏后/复发预防</td><td data-label="重点监测/高危点">低血压、心动过缓、QT、肝酶、电解质</td><td data-label="一句话记忆">广谱，但不是“无脑安全”</td></tr>
-<tr data-cat="心律失常"><td data-label="药物"><span class="drug-name">利多卡因</span></td><td data-label="类别">心律失常</td><td data-label="主要作用">Ib类，抑制室性异位兴奋</td><td data-label="典型场景">缺血相关室早/室速</td><td data-label="重点监测/高危点">嗜睡、意识改变、抽搐；肝功能影响代谢</td><td data-label="一句话记忆">更偏“室性、缺血相关”</td></tr>
-<tr data-cat="出血/门脉"><td data-label="药物"><span class="drug-name">垂体后叶素</span></td><td data-label="类别">出血/门脉</td><td data-label="主要作用">血管加压素样作用，收缩内脏血管</td><td data-label="典型场景">消化道出血、咯血、尿崩部分场景</td><td data-label="重点监测/高危点">冠脉/肠系膜缺血、低钠、腹痛、心律失常</td><td data-label="一句话记忆">有效但“收缩太广”，要敬畏</td></tr>
-<tr data-cat="出血/门脉"><td data-label="药物"><span class="drug-name">生长抑素</span></td><td data-label="类别">出血/门脉</td><td data-label="主要作用">减少内脏血流、降低门脉压力</td><td data-label="典型场景">食管胃底静脉曲张出血、胰腺相关场景</td><td data-label="重点监测/高危点">血糖、电解质、腹痛、胆囊相关问题</td><td data-label="一句话记忆">曲张静脉出血的早期药物选择之一</td></tr>
-<tr data-cat="出血/门脉"><td data-label="药物"><span class="drug-name">奥曲肽</span></td><td data-label="类别">出血/门脉</td><td data-label="主要作用">生长抑素类似物，半衰期更长</td><td data-label="典型场景">疑似/明确静脉曲张出血、肝硬化上消化道出血</td><td data-label="重点监测/高危点">血糖、心率、腹部症状</td><td data-label="一句话记忆">“怀疑曲张出血，别等内镜才想起”</td></tr>
-<tr data-cat="抗凝"><td data-label="药物"><span class="drug-name">肝素</span></td><td data-label="类别">抗凝</td><td data-label="主要作用">增强抗凝血酶作用，抑制凝血酶/Xa等</td><td data-label="典型场景">血栓、房颤桥接、介入/透析/ECMO等</td><td data-label="重点监测/高危点">APTT/ACT、出血、血小板下降/HIT</td><td data-label="一句话记忆">抗凝不是只看泵速，关键看监测</td></tr>
-<tr data-cat="镇静镇痛"><td data-label="药物"><span class="drug-name">地西泮/安定</span></td><td data-label="类别">镇静镇痛</td><td data-label="主要作用">苯二氮䓬类，抗惊厥、镇静</td><td data-label="典型场景">癫痫发作、酒精戒断、短程镇静</td><td data-label="重点监测/高危点">呼吸抑制、低血压、蓄积、谵妄</td><td data-label="一句话记忆">抗惊厥老药，ICU长期镇静不优先</td></tr>
-<tr data-cat="镇静镇痛"><td data-label="药物"><span class="drug-name">咪达唑仑</span></td><td data-label="类别">镇静镇痛</td><td data-label="主要作用">短效苯二氮䓬类，镇静、抗惊厥</td><td data-label="典型场景">插管镇静、癫痫持续状态</td><td data-label="重点监测/高危点">呼吸抑制、低血压、蓄积、谵妄；肾衰可延长</td><td data-label="一句话记忆">癫痫持续状态常见连续泵药</td></tr>
-<tr data-cat="镇静镇痛"><td data-label="药物"><span class="drug-name">右美托咪定</span></td><td data-label="类别">镇静镇痛</td><td data-label="主要作用">α2激动，可唤醒镇静，少呼吸抑制</td><td data-label="典型场景">机械通气浅镇静、拔管前后、谵妄风险较高者</td><td data-label="重点监测/高危点">心动过缓、低血压；传导阻滞慎用</td><td data-label="一句话记忆">“能叫醒的镇静”</td></tr>
-<tr data-cat="镇静镇痛"><td data-label="药物"><span class="drug-name">丙泊酚</span></td><td data-label="类别">镇静镇痛</td><td data-label="主要作用">GABA相关镇静催眠，起效/苏醒快</td><td data-label="典型场景">机械通气镇静、颅压控制、癫痫持续状态麻醉</td><td data-label="重点监测/高危点">呼吸抑制、低血压、甘油三酯、PRIS</td><td data-label="一句话记忆">快进快出，但血压和代谢要盯</td></tr>
-<tr data-cat="镇静镇痛"><td data-label="药物"><span class="drug-name">瑞芬太尼</span></td><td data-label="类别">镇静镇痛</td><td data-label="主要作用">超短效μ阿片受体激动剂，镇痛强</td><td data-label="典型场景">插管、机械通气同步、短操作镇痛</td><td data-label="重点监测/高危点">呼吸抑制、胸壁强直、心动过缓、低血压</td><td data-label="一句话记忆">“疼痛控制很快，停药也很快”</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="cards">
-<h2 class="section-title">药物精读卡</h2>
-<p class="section-subtitle">每张卡片按“何时用—怎么盯—什么时候停下来想一想”整理。建议先展开你今天值班最可能遇到的药。</p>
-<div class="drug-grid">
-<details class="drug" open=""><summary><span class="summary-left">硝酸甘油 <small class="muted">Nitroglycerin</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag blue">降压</span><span class="tag blue">抗缺血</span><ul><li>核心：扩静脉为主，降低前负荷，缓解肺淤血和心肌缺血。</li><li>适合：高血压合并胸痛/肺水肿；不适合容量不足、严重低血压。</li><li>床旁问题：用了后血压下降，呼吸是否改善？心率是否反射性增快？胸痛是否缓解？</li></ul><div class="warning">右室梗死、低容量、严重主动脉瓣狭窄、近期PDE-5抑制剂使用者，要高度警惕灾难性低血压。</div></div></details>
-<details class="drug"><summary><span class="summary-left">硝普钠 <small class="muted">Sodium nitroprusside</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag red">高危降压</span><ul><li>核心：动脉和静脉都强烈扩张，起效快、消失快。</li><li>适合：需要分钟级精准控压的高血压急症/围术期控压。</li><li>监测：连续血压、酸碱/乳酸、肝肾功能；避光；尽量短期使用。</li></ul><div class="warning">硝普钠的“危险不在会不会降压，而在降得太快和氰化物/硫氰酸盐毒性”。肝肾功能差、长时间大剂量更危险。</div></div></details>
-<details class="drug"><summary><span class="summary-left">去甲肾上腺素 <small class="muted">Norepinephrine</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag red">一线升压</span><ul><li>核心：α1收缩血管，恢复灌注压；β1作用较弱。</li><li>适合：感染性休克、血管扩张性休克、麻醉/镇静相关低血压经评估后需要升压。</li><li>判断疗效：MAP、尿量、皮温、毛细血管再充盈、乳酸趋势，而不只是“血压数字”。</li></ul><div class="pearl">思考：去甲越加越高但乳酸不降，要重新评估容量、感染源、心功能、梗阻性休克、肢端灌注。</div></div></details>
-<details class="drug"><summary><span class="summary-left">多巴胺 vs 多巴酚丁胺</span><span class="chev">›</span></summary><div class="drug-body"><span class="tag green">强心</span><span class="tag red">升压</span><ul><li>多巴胺：剂量依赖，升压和心律失常风险并存。</li><li>多巴酚丁胺：更偏强心、增加心排；血管扩张可能让血压更低。</li><li>床旁区分：血管张力不够 → 去甲优先；心排不够 → 多巴酚丁胺常被考虑。</li></ul><div class="warning">不要把多巴胺当作“护肾药”。尿量少先问灌注压、容量、肾前性、梗阻和肾毒性药物。</div></div></details>
-<details class="drug"><summary><span class="summary-left">乌拉地尔/尼卡地平 <small class="muted">神经ICU控压</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag blue">平稳控压</span><ul><li>乌拉地尔：α1阻滞加中枢作用，较少反射性心动过速。</li><li>尼卡地平：动脉扩张，神经重症控压常用，便于连续滴定。</li><li>神经ICU重点：目标血压要服务于脑灌注，而不是单纯“越低越好”。</li></ul><div class="pearl">EVT/ICH/SAH术后控压，要把再灌注损伤、出血转化、脑灌注不足、夹层/支架情况一起考虑。</div></div></details>
-<details class="drug"><summary><span class="summary-left">胺碘酮 <small class="muted">Amiodarone</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag purple">广谱抗心律失常</span><ul><li>可用于房颤、室速、室颤相关场景；急性静脉用常见问题是低血压和心动过缓。</li><li>用前看：血压、QT、电解质、肝酶、甲状腺病史、合并用药。</li><li>房颤不是见到就转律：先判断血流动力学稳定性、发作时间、抗凝风险。</li></ul><div class="warning">低钾、低镁、QT延长、多种延长QT药物叠加时，抗心律失常药也可能诱发心律失常。</div></div></details>
-<details class="drug"><summary><span class="summary-left">艾司洛尔/地尔硫䓬 <small class="muted">控率药</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag purple">控心率</span><ul><li>艾司洛尔：超短效β1阻滞，适合需要快速撤药的控率/控交感场景。</li><li>地尔硫䓬：房室结传导减慢，房颤/房扑快速心室率常用。</li><li>先问：患者是否低血压？是否心衰/低EF？是否预激合并房颤？</li></ul><div class="warning">房颤快但血压不稳，优先处理血流动力学；不要被“心率数字”牵着走。</div></div></details>
-<details class="drug"><summary><span class="summary-left">生长抑素/奥曲肽/垂体后叶素</span><span class="chev">›</span></summary><div class="drug-body"><span class="tag orange">出血</span><span class="tag orange">门脉</span><ul><li>生长抑素/奥曲肽：减少内脏血流，降低门脉压力，疑似曲张静脉出血可早期启用。</li><li>垂体后叶素：收缩更广，缺血性不良反应更需要警惕。</li><li>同时别忘：限制性输血、抗生素、纠正休克、尽快内镜评估。</li></ul><div class="pearl">曲张静脉出血不是“先等内镜”，药物、复苏、抗感染和内镜是并行思维。</div></div></details>
-<details class="drug"><summary><span class="summary-left">肝素 <small class="muted">Heparin</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag">抗凝</span><ul><li>核心：增强抗凝血酶作用，抑制凝血酶和Xa等。</li><li>场景：血栓治疗/预防、介入围术期、透析/体外循环等。</li><li>监测：APTT或ACT、血红蛋白、穿刺点/消化道/颅内出血风险、血小板趋势。</li></ul><div class="warning">HIT的危险在于“血小板下降但血栓风险反而升高”。血小板明显下降或新发血栓要警惕。</div></div></details>
-<details class="drug"><summary><span class="summary-left">咪达唑仑/地西泮 <small class="muted">苯二氮䓬类</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag">抗惊厥</span><span class="tag">镇静</span><ul><li>优势：抗惊厥、遗忘、镇静；癫痫持续状态常用。</li><li>问题：呼吸抑制、低血压、蓄积、谵妄；长期镇静不再是首选思路。</li><li>神经ICU：用药后神经查体会被掩盖，需和“需要查体”之间平衡。</li></ul><div class="warning">镇静后瞳孔、肢体活动、意识评分变化，不一定全是病情变化，也可能是药物效应。</div></div></details>
-<details class="drug"><summary><span class="summary-left">丙泊酚/右美托咪定</span><span class="chev">›</span></summary><div class="drug-body"><span class="tag">ICU镇静</span><ul><li>丙泊酚：起效快、停药醒得快，适合需要较深镇静或快速调节；但低血压、呼吸抑制、甘油三酯/PRIS风险要盯。</li><li>右美托咪定：可唤醒、少呼吸抑制，适合浅镇静；但心动过缓和低血压常见。</li><li>ICU理念：能浅镇静就浅镇静，先镇痛再镇静，设定RASS目标。</li></ul><div class="pearl">机械通气患者躁动，先找疼痛、缺氧、高碳酸、尿潴留、谵妄、管路不适，而不是直接加深镇静。</div></div></details>
-<details class="drug"><summary><span class="summary-left">瑞芬太尼 <small class="muted">Remifentanil</small></span><span class="chev">›</span></summary><div class="drug-body"><span class="tag">镇痛</span><ul><li>超短效阿片，适合短操作、气管插管、呼吸机同步镇痛。</li><li>优点：起效快、停药快；便于做神经查体前调整。</li><li>风险：呼吸抑制、胸壁强直、心动过缓、低血压、痛觉过敏。</li></ul><div class="warning">阿片解决疼痛，不解决谵妄、缺氧、气胸、呼吸机参数不合适等问题。</div></div></details>
-</div>
-</section>
-<section id="neuro">
-<h2 class="section-title">神经ICU：你要多想一步“脑灌注”</h2>
-<p class="section-subtitle">同样是升压或降压，普通ICU多盯MAP和器官灌注；神经ICU还要把ICP、CPP、再灌注损伤、出血转化和神经查体考虑进去。</p>
-<div class="grid-3">
-<div class="card"><h3>EVT/再通术后控压</h3><p>血压太高：再灌注损伤、出血转化风险上升；血压太低：缺血半暗带/侧支灌注可能不足。尼卡地平、乌拉地尔等常见，但目标值必须结合再通程度、梗死核心、出血风险和本院流程。</p></div>
-<div class="card"><h3>SAH/脑血管痉挛</h3><p>动脉瘤未处理前避免血压过高；处理后若出现迟发性脑缺血，可能需要维持足够灌注压。升压药不是“升数字”，而是为神经功能和灌注服务。</p></div>
-<div class="card"><h3>镇静与神经查体</h3><p>丙泊酚、咪达唑仑、右美托咪定、瑞芬太尼都会影响意识和反应。镇静目标、每日唤醒、瞳孔和运动反应的解读，要与药物半衰期放在一起。</p></div>
-</div>
-<div class="card" style="margin-top:16px">
-<h3>床旁三问</h3>
-<div class="flow"><span class="pill">1. 我在改变什么？血管张力/心排/心率/疼痛/意识？</span><span class="arrow">→</span><span class="pill">2. 我用什么指标证明有效？MAP/尿量/乳酸/神经查体/RASS？</span><span class="arrow">→</span><span class="pill">3. 最怕什么副作用？低血压/缺血/出血/呼吸抑制/心律失常？</span></div>
-</div>
-</section>
-<section id="quiz">
-<h2 class="section-title">题和思考</h2>
-<p class="section-subtitle">每题先自己答：首要问题是什么？选药前还缺什么信息？用药后看什么指标？再展开答案。</p>
-<div class="grid-2">
-<div class="case"><h3>1. 感染性休克，补液后 MAP 55 mmHg</h3><p>你首先想到哪类药？除了血压，还看什么？</p><details><summary>参考思路</summary><p>首选升压思维，去甲肾上腺素通常是一线选择。不要只看MAP，还要看乳酸趋势、尿量、皮温、毛细血管再充盈、感染源控制和容量反应性。</p></details></div>
-<div class="case"><h3>2. 高血压+急性肺水肿+胸闷</h3><p>硝酸甘油和去甲肾上腺素哪个方向更合理？</p><details><summary>参考思路</summary><p>这是“压力太高+前负荷高+肺淤血”的方向，硝酸甘油常更贴近病理生理。先确认血压、右室梗死风险、容量状态和禁忌。</p></details></div>
-<div class="case"><h3>3. 房颤心率160，血压85/50</h3><p>能直接上地尔硫䓬或艾司洛尔吗？</p><details><summary>参考思路</summary><p>先判断血流动力学不稳定。控率药可能进一步降压。应同时查找诱因：感染、缺氧、疼痛、低容量、电解质、心衰；必要时按不稳定心律失常路径处理。</p></details></div>
-<div class="case"><h3>4. 室速反复发作，低钾低镁</h3><p>胺碘酮之外还必须处理什么？</p><details><summary>参考思路</summary><p>纠正电解质是核心之一。低钾低镁会增加恶性心律失常和QT相关风险。同步评估缺血、酸中毒、药物诱因。</p></details></div>
-<div class="case"><h3>5. 肝硬化呕血，怀疑曲张静脉出血</h3><p>奥曲肽/生长抑素要不要等内镜后再用？</p><details><summary>参考思路</summary><p>不应被动等待。疑似曲张静脉出血时，血管活性药物、复苏、抗生素和内镜评估应并行。用药后仍要尽快内镜止血和二级预防规划。</p></details></div>
-<div class="case"><h3>6. 去甲外周泵入后穿刺点肿胀发白</h3><p>你最担心什么？</p><details><summary>参考思路</summary><p>担心血管活性药外渗导致局部缺血坏死。立即停止该通路泵入、保留针路评估、通知上级，按本院外渗处理流程处理。</p></details></div>
-<div class="case"><h3>7. 插管患者躁动，血氧下降</h3><p>第一反应是加咪达唑仑吗？</p><details><summary>参考思路</summary><p>先找可逆原因：气道分泌物、管路问题、气胸、疼痛、谵妄、人机不同步、尿潴留、高碳酸。镇静可以帮助同步，但不应掩盖病因。</p></details></div>
-<div class="case"><h3>8. 右美托咪定后心率38</h3><p>这是什么药物典型问题？</p><details><summary>参考思路</summary><p>右美托咪定常见心动过缓和低血压。评估灌注、血压、传导阻滞、合并β阻滞剂/钙拮抗剂，必要时减量或停药。</p></details></div>
-<div class="case"><h3>9. 肝素泵入后血小板下降50%</h3><p>只是出血风险增加吗？</p><details><summary>参考思路</summary><p>还要警惕HIT：血小板下降但血栓风险增加。结合时间窗、4T评分、是否新发血栓，及时请上级/血液/药师评估。</p></details></div>
-<div class="case"><h3>10. 脑出血患者血压220/120</h3><p>降压是不是越快越低越好？</p><details><summary>参考思路</summary><p>不是。要在降低再出血/血肿扩大风险与维持脑灌注之间平衡，按指南、本院路径和个体化情况设定目标。连续监测神经功能和血压波动。</p></details></div>
-</div>
-</section>
-<section id="plan">
-<h2 class="section-title">7天学习路线</h2>
-<p class="section-subtitle">每天只抓一条主线，比一次性背22个药更有效。</p>
-<div class="timeline">
-<div class="day"><b>Day 1</b><p>只学升压：去甲、肾上腺素、多巴胺。目标：能解释“休克为什么不是只看血压”。</p></div>
-<div class="day"><b>Day 2</b><p>只学强心：多巴酚丁胺。目标：区分“血管张力不足”和“心排不足”。</p></div>
-<div class="day"><b>Day 3</b><p>只学降压：硝酸甘油、硝普钠、乌拉地尔、尼卡地平。目标：能说出每个药最怕什么副作用。</p></div>
-<div class="day"><b>Day 4</b><p>只学心律：胺碘酮、艾司洛尔、地尔硫䓬、利多卡因、异丙肾。目标：先分“快/慢、稳/不稳、室上/室性”。</p></div>
-<div class="day"><b>Day 5</b><p>只学镇静镇痛：丙泊酚、右美、咪达唑仑、瑞芬太尼、地西泮。目标：用RASS/CPOT说话。</p></div>
-<div class="day"><b>Day 6</b><p>只学出血抗凝：奥曲肽、生长抑素、垂体后叶素、肝素。目标：曲张静脉出血和抗凝监测说清楚。</p></div>
-<div class="day"><b>Day 7</b><p>复盘10道场景题，把每个药写成一句话：适应证一句、风险一句、监测一句。</p></div>
-</div>
-</section>
-<section class="sources">
-<h2 class="section-title">参考与核对来源</h2>
-<p class="section-subtitle">本文结合照片内容和公开指南/药品标签整理。具体用药请按本院制度、药师审核、药品说明书和上级医师意见执行。</p>
-<div class="grid-2">
-<div class="card"><h3>休克/升压</h3><p>Surviving Sepsis Campaign 2021：成人感染性休克推荐去甲肾上腺素作为一线升压药。</p><p><a href="https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-guidelines-2021" rel="noreferrer" target="_blank">SCCM Surviving Sepsis Guidelines 2021</a></p></div>
-<div class="card"><h3>ICU镇静</h3><p>SCCM PADIS：机械通气成人推荐浅镇静，常优先考虑丙泊酚或右美托咪定而非苯二氮䓬类；2025更新在浅镇静/谵妄优先时更支持右美托咪定。</p><p><a href="https://www.sccm.org/clinical-resources/guidelines/guidelines/guidelines-for-the-prevention-and-management-of-pa" rel="noreferrer" target="_blank">SCCM PADIS Guidelines</a> · <a href="https://www.sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline" rel="noreferrer" target="_blank">2025 Focused Update</a></p></div>
-<div class="card"><h3>曲张静脉出血</h3><p>Baveno/AGA等共识：疑似静脉曲张出血时应尽早使用血管活性药物，内镜止血后通常继续2–5天以降低早期再出血风险。</p><p><a href="https://www.gastrojournal.org/article/S0016-5085(23)05143-0/pdf" rel="noreferrer" target="_blank">AGA Clinical Practice Update 2024</a></p></div>
-<div class="card"><h3>药品标签</h3><p>硝普钠氰化物毒性、丙泊酚、肝素、胺碘酮、右美托咪定、瑞芬太尼等风险请以药品说明书/标签为准。</p><p><a href="https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=72a9b7df-3a2f-4c16-93a9-b645bc0e8143" rel="noreferrer" target="_blank">DailyMed Sodium Nitroprusside</a> · <a href="https://dailymed.nlm.nih.gov/" rel="noreferrer" target="_blank">DailyMed</a></p></div>
-</div>
-</section>
-</main>
-<footer class="foot container">
-<p class="print-note">打印提示：建议使用A4横向或缩放至90%，并在浏览器打印设置中开启“背景图形”。</p>
-<p>版本：ICU泵药学习手册 v1.0｜整理自用户上传照片，设计为离线可打开的单文件HTML。</p>
-</footer>
-<script>
-  const search = document.getElementById('search');
-  const filter = document.getElementById('filter');
-  const rows = [...document.querySelectorAll('#drugTable tbody tr')];
-  function applyFilter(){
-    const q = (search.value || '').trim().toLowerCase();
-    const cat = filter.value;
-    rows.forEach(row => {
-      const text = row.innerText.toLowerCase();
-      const okQ = !q || text.includes(q);
-      const okC = cat === 'all' || row.dataset.cat === cat;
-      row.style.display = okQ && okC ? '' : 'none';
-    });
-  }
-  search.addEventListener('input', applyFilter);
-  filter.addEventListener('change', applyFilter);
+    <section>
+      <h2>治疗定位</h2>
+      <p class="section-note">IVIG通常不是孤立使用，而是AE急性期一线免疫治疗的一部分。高度疑似或抗体阳性时，可在排查感染等替代诊断的同时尽早启动。</p>
+      <div class="grid three">
+        <article class="card stripe">
+          <span class="tag">疑似AE</span>
+          <h3>先抓临床综合征</h3>
+          <p class="muted">亚急性精神行为异常、癫痫、意识障碍、运动障碍、自主神经紊乱等；同步完善MRI、EEG、CSF、血清+CSF抗体。</p>
+        </article>
+        <article class="card stripe teal">
+          <span class="tag teal">同步排查</span>
+          <h3>感染未排除时要谨慎</h3>
+          <p class="muted">若HSV等感染性脑炎仍不能排除，应先覆盖抗感染/抗病毒并动态复评，避免盲目免疫抑制。</p>
+        </article>
+        <article class="card stripe amber">
+          <span class="tag amber">一线免疫</span>
+          <h3>甲强龙 +/- IVIG</h3>
+          <p class="muted">轻-中症可用甲泼尼龙冲击 +/- IVIG；重症/ICU常考虑联合一线，低通气或重度自主神经紊乱时早期评估血浆置换。</p>
+        </article>
+      </div>
+    </section>
 
-  const weight = document.getElementById('weight');
-  const template = document.getElementById('template');
-  const dose = document.getElementById('dose');
-  const result = document.getElementById('calcResult');
-  function calc(){
-    const W = Number(weight.value || 60);
-    const D = Number(dose.value || 0);
-    let txt = '';
-    if(template.value === '3'){
-      txt = `预计泵速：${D.toFixed(1).replace('.0','')} mL/h；配药量约 ${Math.round(W*3)} mg 至50 mL。`;
-    } else if(template.value === '0.3'){
-      txt = `预计泵速：${(D/0.1).toFixed(1).replace('.0','')} mL/h；配药量约 ${(W*0.3).toFixed(1)} mg 至50 mL。`;
-    } else {
-      txt = `预计泵速：${(D/1000*60).toFixed(2)} mL/h；此处目标剂量单位按 μg/min 理解。`;
+    <section>
+      <h2>剂量与瓶数</h2>
+      <p class="section-note">保留原HTML的核心公式和快速计算器，便于床旁按体重快速估算。</p>
+      <div class="grid three">
+        <article class="card stripe">
+          <span class="tag">推荐剂量</span>
+          <h3>标准冲击量</h3>
+          <div class="formula">IVIG 总量 = 体重 kg x 2 g/kg
+常用拆分 = 体重 kg x 0.4 g/kg/日 x 5日</div>
+          <p class="muted small">速度和总容量需看产品浓度、患者耐受和心肾功能。</p>
+        </article>
+        <article class="card stripe green">
+          <span class="tag green">2.5 g/瓶计算</span>
+          <h3>瓶数公式</h3>
+          <div class="formula">每日瓶数 = 体重 x 0.4 ÷ 2.5
+总瓶数 = 体重 x 0.4 x 5 ÷ 2.5 = 体重 x 0.8</div>
+          <p class="muted small">实际开具时按药房规格、整瓶规则、剩余量处理和本院规则取整。</p>
+        </article>
+        <article class="card stripe red">
+          <span class="tag red">给药顺序</span>
+          <h3>注意PLEX会清除IVIG</h3>
+          <p class="muted">若准备血浆置换，需统筹顺序；通常避免IVIG后马上PLEX，以免刚输注的免疫球蛋白被清除。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>IVIG使用流程图</h2>
+      <p class="section-note">融合版采用“诊断确认 -> IVIG给药 -> 1-2周复评 -> 改善/升级”的主路径；具体流程需结合ICU风险、可及性和禁忌证。</p>
+      <div class="flow-wrap">
+        <div class="flow" role="img" aria-label="自身免疫性脑炎IVIG使用流程图">
+          <div class="flow-row">
+            <div class="flow-node"><h3>疑似AE</h3><p>亚急性精神/癫痫/意识/运动/自主神经症状</p></div>
+            <div class="arrow"></div>
+            <div class="flow-node blue"><h3>同步完善检查</h3><p>MRI、EEG、CSF、血清+CSF抗体；排除感染/代谢</p></div>
+            <div class="arrow"></div>
+            <div class="flow-node amber"><h3>替代诊断？</h3><p>感染未排除：先覆盖抗感染/抗病毒并动态评估</p></div>
+            <div class="arrow"></div>
+            <div class="flow-node teal"><h3>高度疑似/确诊</h3><p>不必等全部抗体结果；启动一线免疫治疗</p></div>
+            <div class="arrow"></div>
+            <div class="flow-node ivig"><h3>给IVIG</h3><p>总量2 g/kg；常用0.4 g/kg/日 x 5日</p></div>
+          </div>
+          <div class="drop"></div>
+          <div class="flow-row reverse">
+            <div class="flow-node"><h3>随访</h3><p>复发监测、肿瘤筛查、功能恢复和并发症管理</p></div>
+            <div class="arrow left"></div>
+            <div class="flow-node red"><h3>无效/恶化</h3><p>换/加血浆置换；讨论利妥昔单抗、环磷酰胺等二线</p></div>
+            <div class="arrow left red"></div>
+            <div class="flow-node green"><h3>改善</h3><p>继续康复/症状控制；必要时激素递减或维持免疫</p></div>
+            <div class="arrow left green"></div>
+            <div class="flow-node"><h3>1-2周复评</h3><p>意识、癫痫、精神行为、自主神经、呼吸支持需求</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="section-note">重症/ICU：甲强龙 + IVIG；中枢低通气或重度自主神经紊乱时，早期评估血浆置换。</p>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <span class="tag">开医嘱模板</span>
+        <h2>成人常用写法</h2>
+        <table>
+          <thead><tr><th>项目</th><th>建议写法/要点</th></tr></thead>
+          <tbody>
+            <tr><td>主药</td><td>静注人免疫球蛋白（IVIG）<b>0.4 g/kg</b> 静脉滴注 qd x 5 d</td></tr>
+            <tr><td>疗程</td><td>每日开短嘱，D1-D5；总量 2 g/kg</td></tr>
+            <tr><td>预处理</td><td>非绝对必须；如既往反应/过敏风险，可按院内常规用苯海拉明、对乙酰氨基酚 +/- 地塞米松</td></tr>
+            <tr><td>输注速度</td><td>低速起始，耐受后逐步加速；肾功能不全、老年、血栓风险高者用最低可行速度</td></tr>
+            <tr><td>联合治疗</td><td>常与甲泼尼龙冲击联合；若准备血浆置换，避免 IVIG 后马上 PLEX 以免被清除</td></tr>
+            <tr><td>知情同意</td><td>说明可能自费/超说明书、血制品风险、过敏/血栓/肾损伤等风险</td></tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card">
+        <span class="tag green">快速计算器</span>
+        <h2>按体重计算剂量与瓶数</h2>
+        <div class="calc">
+          <div><label for="weight">体重 kg</label><input id="weight" type="number" value="60" min="1" step="0.1"></div>
+          <div><label for="dailyDose">每日剂量 g/kg</label><input id="dailyDose" type="number" value="0.4" min="0" step="0.1"></div>
+          <div><label for="days">天数</label><input id="days" type="number" value="5" min="1" step="1"></div>
+          <div><label for="vial">每瓶规格 g</label><input id="vial" type="number" value="2.5" min="0.1" step="0.1"></div>
+        </div>
+        <div class="result">
+          <div class="pill"><span>每日剂量</span><b id="outDaily">24 g</b></div>
+          <div class="pill"><span>总剂量</span><b id="outTotal">120 g</b></div>
+          <div class="pill"><span>每日瓶数</span><b id="outDailyVial">9.6 瓶</b></div>
+          <div class="pill"><span>总瓶数</span><b id="outTotalVial">48 瓶</b></div>
+        </div>
+        <p class="small muted">例：60 kg患者，0.4 g/kg/日 x 5天，每日24 g，总量120 g。若2.5 g/瓶，每日9.6瓶，总48瓶；实际按药房规则取整。</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>输注前评估与监测</h2>
+      <p class="section-note">先找出会让IVIG变危险的风险点，重点是肾损伤、血栓、过敏/IgA缺乏、容量负荷和高黏滞状态。</p>
+      <div class="grid two">
+        <article class="card risk">
+          <h3>肾功能/尿量</h3>
+          <p class="muted">Scr、eGFR、尿量；脱水、老年、糖尿病、肾病、脓毒症、使用肾毒性药物者需格外谨慎。</p>
+        </article>
+        <article class="card risk red">
+          <h3>血栓风险</h3>
+          <p class="muted">既往血栓、长期卧床、肿瘤、高凝、中心静脉导管、高黏滞状态、心血管危险因素。</p>
+        </article>
+        <article class="card risk amber">
+          <h3>过敏风险</h3>
+          <p class="muted">既往IVIG/血制品反应、IgA缺乏史；输注中观察皮疹、喘憋、低血压等。</p>
+        </article>
+        <article class="card risk teal">
+          <h3>容量负荷</h3>
+          <p class="muted">心衰、肾衰、低氧或容量敏感患者需控制速度、浓度和补液策略。</p>
+        </article>
+      </div>
+      <div class="callout">输注期间：低速起始，耐受后逐步加速；监测生命体征、头痛/发热/寒战、过敏表现、尿量/肌酐、血栓事件和容量超负荷。</div>
+    </section>
+
+    <section class="grid two">
+      <article class="card">
+        <span class="tag amber">用前核对</span>
+        <h2>开丙球前检查清单</h2>
+        <div class="checklist">
+          <div class="check">明确疑似/确诊AE，已同步排查感染性脑炎</div>
+          <div class="check">记录实际体重，肥胖/特殊人群按医院药学建议</div>
+          <div class="check">查肾功能、电解质、尿量，评估容量状态</div>
+          <div class="check">评估血栓风险：卧床、肿瘤、既往血栓、高黏滞等</div>
+          <div class="check">询问IVIG/血制品过敏史，必要时评估IgA缺乏</div>
+          <div class="check">沟通血制品、费用、获益与风险，签署知情同意</div>
+        </div>
+      </article>
+      <article class="card">
+        <span class="tag red">不良反应</span>
+        <h2>哪些情况要特别谨慎？</h2>
+        <ul>
+          <li><b>轻度反应：</b>发热、寒战、头痛、皮疹，可减慢/暂停输注并对症处理。</li>
+          <li><b>严重过敏：</b>喘憋、低血压、喉头水肿等，需停药并急救处理。</li>
+          <li><b>血栓/肾损伤：</b>高危患者需充分水化、低速输注并动态监测尿量和肌酐。</li>
+          <li><b>神经系统反应：</b>无菌性脑膜炎样表现、高剂量或快速输注时更应警惕。</li>
+          <li><b>容量超负荷/TRALI：</b>低氧、肺水肿或心衰患者需特别谨慎。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>复评与升级</h2>
+      <div class="grid two">
+        <article class="card stripe green">
+          <span class="tag green">有效</span>
+          <h3>进入巩固与随访</h3>
+          <ul>
+            <li>继续康复、营养、抗癫痫和精神症状管理。</li>
+            <li>根据复发风险考虑口服激素递减或周期性免疫治疗。</li>
+            <li>持续肿瘤筛查，尤其抗NMDAR、LGI1、CASPR2等相关情境。</li>
+          </ul>
+        </article>
+        <article class="card stripe red">
+          <span class="tag red">无效/恶化</span>
+          <h3>及时升级</h3>
+          <ul>
+            <li>重新审视感染、肿瘤、代谢/毒性和非AE诊断。</li>
+            <li>与血浆置换统筹顺序，避免清除刚输注的IVIG。</li>
+            <li>讨论二线免疫：利妥昔单抗、环磷酰胺等。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <span class="tag violet">一句话总结</span>
+      <h2>你前面写的公式是否成立？</h2>
+      <p><b>成立。</b>如果按2.5 g/瓶计算，总瓶数公式就是：</p>
+      <div class="formula">体重 x 0.4 x 5 ÷ 2.5 = 体重 x 0.8</div>
+      <p class="muted">例如60 kg：60 x 0.8 = 48瓶；每日剂量60 x 0.4 = 24 g，即24 ÷ 2.5 = 9.6瓶/日。临床实际开药要按药房是否允许非整瓶、规格是否为2.5 g、剩余液处理、患者容量耐受来调整。</p>
+    </section>
+
+    <footer class="refs">
+      <b>主要参考：</b>
+      <ol>
+        <li>Abboud H, et al. <i>Autoimmune encephalitis: proposed best practice recommendations for diagnosis and acute management.</i> JNNP, 2021：IVIG 2 g/kg over 2-5 days；一线治疗可包括激素、IVIG、血浆置换。<a href="https://jnnp.bmj.com/content/92/7/757" target="_blank" rel="noreferrer">JNNP</a></li>
+        <li>Mayo Clinic 中文页面：AE免疫疗法包括高剂量甲泼尼龙、IVIG、血浆置换；IVIG可每日给药2-5天。<a href="https://www.mayoclinic.org/zh-hans/diseases-conditions/autoimmune-encephalitis/diagnosis-treatment/drc-20576406" target="_blank" rel="noreferrer">Mayo Clinic</a></li>
+        <li>DailyMed / FDA IVIG说明书信息：IGIV产品有血栓、肾功能不全和急性肾衰风险；高危患者需水化、低速输注并监测。<a href="https://dailymed.nlm.nih.gov/dailymed/" target="_blank" rel="noreferrer">DailyMed</a></li>
+      </ol>
+      <p>生成日期：2026-06-09 | 临床教学参考，具体用药需结合专科医嘱、本院方案及患者风险。</p>
+    </footer>
+  </main>
+
+  <script>
+    function round(n, d = 1) {
+      if (!isFinite(n)) return "—";
+      return (Math.round(n * Math.pow(10, d)) / Math.pow(10, d)).toString();
     }
-    result.textContent = txt;
-  }
-  [weight, template, dose].forEach(el => el.addEventListener('input', calc));
-  [template].forEach(el => el.addEventListener('change', calc));
-  calc();
 
-  const quickSearch = document.getElementById('quickSearch');
-  if (quickSearch && search) {
-    quickSearch.addEventListener('input', () => {
-      search.value = quickSearch.value;
-      applyFilter();
-      if (location.hash !== '#table' && quickSearch.value.trim().length >= 1) {
-        history.replaceState(null, '', '#table');
-      }
+    function calc() {
+      const w = parseFloat(document.getElementById("weight").value) || 0;
+      const dose = parseFloat(document.getElementById("dailyDose").value) || 0;
+      const days = parseFloat(document.getElementById("days").value) || 0;
+      const vial = parseFloat(document.getElementById("vial").value) || 0;
+      const daily = w * dose;
+      const total = daily * days;
+      const dailyV = vial > 0 ? daily / vial : NaN;
+      const totalV = vial > 0 ? total / vial : NaN;
+      document.getElementById("outDaily").textContent = round(daily, 1) + " g";
+      document.getElementById("outTotal").textContent = round(total, 1) + " g";
+      document.getElementById("outDailyVial").textContent = round(dailyV, 1) + " 瓶";
+      document.getElementById("outTotalVial").textContent = round(totalV, 1) + " 瓶";
+    }
+
+    ["weight", "dailyDose", "days", "vial"].forEach((id) => {
+      document.getElementById(id).addEventListener("input", calc);
     });
-    search.addEventListener('input', () => { quickSearch.value = search.value; });
-  }
-
-  // 让手机上的“目录”和“底部导航”点击更顺滑，避免顶栏遮住标题
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href').slice(1);
-      const target = document.getElementById(id);
-      if (!target) return;
-      e.preventDefault();
-      const y = target.getBoundingClientRect().top + window.scrollY - (window.innerWidth <= 760 ? 74 : 20);
-      window.scrollTo({top:y, behavior:'smooth'});
-      history.replaceState(null, '', '#' + id);
-    });
-  });
-
-</script>
+    calc();
+  </script>
 </body>
 </html>
