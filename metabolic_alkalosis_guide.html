@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ICU代谢性碱中毒处理速查表</title>
+<style>
+:root{--bg:#f5f7fb;--card:#ffffff;--text:#172033;--muted:#667085;--blue:#2563eb;--green:#059669;--orange:#f97316;--red:#dc2626;--border:#e5e7eb;--code:#0f172a;}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;background:linear-gradient(180deg,#eef4ff 0%,#f8fafc 220px);color:var(--text);line-height:1.75}.container{max-width:980px;margin:auto;padding:28px 18px 64px}.hero{background:rgba(255,255,255,.82);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.8);border-radius:28px;padding:30px;box-shadow:0 18px 50px rgba(30,64,175,.10);margin-bottom:20px}.hero h1{margin:0 0 10px;font-size:32px;line-height:1.25}.hero p{margin:0;color:var(--muted);font-size:16px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}.pill{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:0 8px 22px rgba(15,23,42,.05)}.pill b{display:block;font-size:18px}.pill span{color:var(--muted);font-size:14px}.card{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:24px;margin:18px 0;box-shadow:0 10px 30px rgba(15,23,42,.06)}h2{margin:0 0 14px;font-size:24px}h3{margin:20px 0 10px;font-size:19px}.tag{display:inline-block;border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700;margin-right:6px}.blue{background:#dbeafe;color:#1d4ed8}.green{background:#d1fae5;color:#047857}.orange{background:#ffedd5;color:#c2410c}.red{background:#fee2e2;color:#b91c1c}table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px;margin:12px 0;background:white}th,td{border:1px solid var(--border);padding:11px;text-align:left;vertical-align:top}th{background:#f1f5f9}code,pre{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}pre{background:var(--code);color:#e5e7eb;border-radius:16px;padding:16px;overflow:auto;line-height:1.65}.flow{display:grid;gap:10px}.step{border-left:5px solid var(--blue);background:#f8fafc;border-radius:14px;padding:12px 14px}.warn{border-left:5px solid var(--red);background:#fff7f7;border-radius:16px;padding:14px 16px}.drug{border-left:5px solid var(--green);background:#fbfffd;border-radius:16px;padding:14px 16px;margin:12px 0}.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.toc a{text-decoration:none;color:#1d4ed8;background:#eff6ff;border:1px solid #bfdbfe;border-radius:999px;padding:6px 12px;font-size:14px}.footer{color:var(--muted);font-size:14px;margin-top:22px}@media(max-width:760px){.grid{grid-template-columns:1fr}.hero h1{font-size:26px}.container{padding:18px 12px 46px}.card,.hero{border-radius:20px;padding:20px}table{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="container">
+  <section class="hero">
+    <h1>ICU 代谢性碱中毒处理速查表</h1>
+    <p>核心：不要只盯 pH，要找出“为什么 HCO₃⁻ 高、为什么肾脏排不出去”。临床最常见是低氯、低钾、低容量或利尿剂相关。</p>
+    <div class="toc">
+      <a href="#severity">严重程度</a><a href="#urinecl">尿氯判断</a><a href="#drugs">常用药物</a><a href="#orders">医嘱模板</a><a href="#logic">处理逻辑</a>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div class="pill"><b>尿 Cl⁻ &lt;20</b><span>多为呕吐、胃管、容量不足：NS + KCl</span></div>
+    <div class="pill"><b>尿 Cl⁻ &gt;20</b><span>持续利尿/醛固酮：停利尿、补钾、查病因</span></div>
+    <div class="pill"><b>顽固/不能补液</b><span>考虑乙酰唑胺；危重考虑 HCl/CRRT</span></div>
+  </div>
+
+  <section class="card" id="severity">
+    <h2>1. 先判断严重程度</h2>
+    <table>
+      <tr><th>严重程度</th><th>血气特点</th><th>处理原则</th></tr>
+      <tr><td>轻中度</td><td>pH 7.45–7.55；HCO₃⁻ 28–40 mmol/L</td><td>找原因，补钾、补氯、停诱因</td></tr>
+      <tr><td>重度</td><td>pH &gt;7.55 或 HCO₃⁻ &gt;40 mmol/L</td><td>积极干预，警惕心律失常、意识障碍、呼吸抑制</td></tr>
+      <tr><td>危重</td><td>pH &gt;7.60 或抽搐、恶性心律失常、严重意识障碍</td><td>ICU处理，必要时 HCl 或 CRRT</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="urinecl">
+    <h2>2. 核心判断：尿氯</h2>
+    <h3><span class="tag green">尿 Cl⁻ &lt;20 mmol/L</span></h3>
+    <p>提示呕吐、胃肠减压、利尿后状态、容量不足，属于<strong>氯反应性代谢性碱中毒</strong>。</p>
+    <pre>治疗核心：0.9% 氯化钠 + 氯化钾 + 去除诱因</pre>
+    <h3><span class="tag orange">尿 Cl⁻ &gt;20 mmol/L</span></h3>
+    <p>提示持续利尿剂作用、原发性/继发性醛固酮增多、Bartter 综合征、Gitelman 综合征等。</p>
+    <pre>治疗核心：停/减利尿剂 + 补钾 + 针对醛固酮或肾脏病因处理</pre>
+  </section>
+
+  <section class="card" id="drugs">
+    <h2>3. 常用药物与用法</h2>
+
+    <div class="drug">
+      <h3>A. 0.9% 氯化钠（NS）</h3>
+      <p><strong>适应证：</strong>尿 Cl⁻ &lt;20 mmol/L、呕吐、胃管引流、利尿后容量不足、低氯低容量。</p>
+      <pre>0.9% NS 500–1000 mL ivgtt
+根据血压、尿量、心功能、出入量调整</pre>
+      <p><strong>注意：</strong>心衰、肾衰慎用大量补液；同时补 KCl 效果更好。</p>
+    </div>
+
+    <div class="drug">
+      <h3>B. 氯化钾（KCl）</h3>
+      <p><strong>目标：</strong>ICU 常用 K⁺ &gt;4.0 mmol/L。</p>
+      <pre>10% KCl 15 mL ≈ 20 mmol K⁺
+常规：20–40 mmol/d ivgtt
+明显低钾：40–80 mmol/d，分次补充
+
+医嘱示例：
+10% KCl 30 mL + 0.9% NS 500 mL ivgtt qd</pre>
+      <p><strong>注意：</strong>静脉补钾需遵守本院浓度和速度规范；严重低钾或心律失常需心电监护。</p>
+    </div>
+
+    <div class="drug">
+      <h3>C. 乙酰唑胺（Acetazolamide）</h3>
+      <p><strong>适应证：</strong>心衰不能大量补液、COPD撤机困难、利尿剂相关碱中毒、顽固性碱中毒。</p>
+      <pre>乙酰唑胺 250 mg po bid
+或
+乙酰唑胺 500 mg iv qd
+
+ICU 顽固性碱中毒：
+乙酰唑胺 500 mg iv q12h</pre>
+      <p><strong>监测：</strong>血气、Na⁺、K⁺、Cl⁻、Cr、尿量。可加重低钾、低钠。</p>
+    </div>
+
+    <div class="drug">
+      <h3>D. 螺内酯（Spironolactone）</h3>
+      <p><strong>适应证：</strong>高醛固酮状态、心衰合并利尿剂相关碱中毒、低钾高血压代谢性碱中毒三联征。</p>
+      <pre>螺内酯 20 mg po bid
+必要时：40 mg po bid</pre>
+      <p><strong>注意：</strong>监测 K⁺ 和肾功能；起效较慢，不适合危重碱中毒快速纠正。</p>
+    </div>
+
+    <div class="warn">
+      <h3>E. 稀盐酸（HCl）与 CRRT</h3>
+      <p><strong>适应证：</strong>pH &gt;7.60、严重意识障碍、抽搐、恶性心律失常、常规治疗无效。</p>
+      <pre>HCl：必须 ICU、中心静脉、严密血气电解质监测
+CRRT：适合合并 AKI/CKD、容量负荷过重、常规治疗无效</pre>
+    </div>
+  </section>
+
+  <section class="card" id="orders">
+    <h2>4. 常见场景医嘱模板</h2>
+    <h3>场景 1：呕吐/胃管减压导致</h3>
+    <pre>1. 0.9% NS 500–1000 mL ivgtt qd，根据容量状态调整
+2. 10% KCl 30 mL + 0.9% NS 500 mL ivgtt qd
+3. 血气分析 qd 或 q12h
+4. 电解质 qd 或 q12h
+5. 评估胃管引流量，能否减少引流或拔除胃管</pre>
+
+    <h3>场景 2：呋塞米/托拉塞米相关</h3>
+    <pre>1. 评估是否减量或暂停呋塞米/托拉塞米
+2. KCl 补钾，目标 K⁺ > 4.0 mmol/L
+3. 如心衰或高醛固酮状态：螺内酯 20 mg po bid
+4. 不能补液或撤机困难者：乙酰唑胺 500 mg iv qd 或 q12h
+5. 复查血气、电解质、肾功能</pre>
+
+    <h3>场景 3：COPD 撤机困难</h3>
+    <pre>1. 纠正低钾：KCl 补钾，目标 K⁺ > 4.0 mmol/L
+2. 纠正低氯：根据容量状态补 NS
+3. 乙酰唑胺 250 mg po bid 或 500 mg iv qd
+4. 顽固者可用 500 mg iv q12h
+5. 监测血气、电解质、呼吸力学和尿量</pre>
+
+    <h3>场景 4：顽固性或重度代谢性碱中毒</h3>
+    <pre>1. 明确原因：尿 Cl⁻、利尿剂、胃液丢失、醛固酮、肾功能
+2. KCl 积极补钾
+3. 根据容量状态补 NS
+4. 乙酰唑胺 500 mg iv q12h
+5. pH > 7.60 或危及生命：请示上级，考虑 HCl 或 CRRT
+6. 血气、电解质 q6–12h 复查</pre>
+  </section>
+
+  <section class="card" id="logic">
+    <h2>5. 一句话处理逻辑</h2>
+    <div class="flow">
+      <div class="step">代谢性碱中毒：pH 升高 + HCO₃⁻ 升高</div>
+      <div class="step">先看尿氯</div>
+      <div class="step">尿氯低：0.9% NS + KCl</div>
+      <div class="step">尿氯高：停利尿剂 / 查醛固酮 / 螺内酯</div>
+      <div class="step">不能补液或顽固性：乙酰唑胺</div>
+      <div class="step">危及生命：HCl 或 CRRT</div>
+    </div>
+    <h3>记忆口诀</h3>
+    <pre>低氯低容量，盐水来帮忙；
+低钾不纠正，碱中毒难降；
+利尿停一停，螺内酯跟上；
+不能补液时，乙酰唑胺上；
+pH 超六零，HCl/CRRT 要商量。</pre>
+  </section>
+
+  <p class="footer">提醒：本速查表用于临床学习与医嘱思路整理。具体剂量、输注速度、补钾浓度、中心静脉用药和 CRRT 方案需结合患者肾功能、心功能、容量状态、心电监护及本院规范执行。</p>
+</div>
+</body>
+</html>
